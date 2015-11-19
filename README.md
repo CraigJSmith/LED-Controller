@@ -21,3 +21,5 @@ power or if you relaunch the program.
 SerialClass is modified from <a href = "http://theelectronicist.blogspot.com/2015/02/java-to-arduino-communications-on-linux.html">Jeremy Dunne's Code<a>
 
 <a href = "http://rxtx.qbang.org/wiki/index.php/Main_Page">RXTX</a> is used for interfacing with the serial connection
+
+EXE release wrapped using <a href = "http://launch4j.sourceforge.net/"Launch4j</a>
