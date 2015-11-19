@@ -22,4 +22,4 @@ SerialClass is modified from <a href = "http://theelectronicist.blogspot.com/201
 
 <a href = "http://rxtx.qbang.org/wiki/index.php/Main_Page">RXTX</a> is used for interfacing with the serial connection
 
-EXE release wrapped using <a href = "http://launch4j.sourceforge.net/"Launch4j</a>
+EXE release wrapped using <a href = "http://launch4j.sourceforge.net/">Launch4j</a>
