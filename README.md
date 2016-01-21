@@ -6,7 +6,7 @@ working, but not complete state.
 <b>Setup</b>
 
 To use this on your own PC, you will need to connect your Arduino using a USB cable. Depending on your configuration, you
-might also need to change the port name in SerialClass on line 16.
+might also need to change the port name in SerialClass on line 16. Currently it does not come packaged with RXTXcomm, so you will need to <a href = "http://fizzed.com/oss/rxtx-for-java">download it from here</a> and install it yourself for now. I will include it in the next release.
 
 <b>Usage</b>
 
