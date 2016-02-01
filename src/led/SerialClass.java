@@ -1,6 +1,5 @@
 package led;
 
-import led.GUI;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -8,15 +7,21 @@ import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.Enumeration;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.commons.io.FileUtils;
 public class SerialClass implements SerialPortEventListener {
- 
+
  public SerialPort serialPort;
+
+    public static final String com = "COM3";
+ 
  /** The port we're normally going to use. */
  private static final String PORT_NAMES[] = {
- "/dev/tty.usbserial-A9007UX1", // Mac OS X
- "/dev/ttyUSB0", // Linux
- "COM3", // Windows
+com
  };
  
 public static BufferedReader input;
