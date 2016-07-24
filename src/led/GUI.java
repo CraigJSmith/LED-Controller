@@ -1,5 +1,6 @@
 package led;
 
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -16,6 +17,7 @@ public class GUI extends javax.swing.JFrame {
 
     public GUI() {
         initComponents();
+        setIcon();
         
         value = pwm.getValue();
         
@@ -772,4 +774,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JToggleButton whiteButton;
     private javax.swing.JToggleButton yellowButton;
     // End of variables declaration//GEN-END:variables
+
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
+    }
 }
