@@ -1,12 +1,10 @@
 # RGBcontroller_Client
-This is a Java application created using NetBeans for controlling an RGB LED strip using an Arduino connected over a serial connection. It requires the
-<a href = "https://github.com/CraigJSmith/RGBcontroller_Arduino">Arduino Sketch</a> to function. The program is currently in a
-working, but not complete state.
+This is a application created using NetBeans for controlling RGB LEDs using an Arduino connected to a PC by USB. The application has two parts, and Arduino sketch and a Java application to control it. The program is currently in a working, but not complete state.
 
 <b>Setup</b>
 
 To use this on your own PC, you will need to connect your Arduino using a USB cable. Depending on your configuration, you
-might also need to change the port name in SerialClass on line 16. Currently it does not come packaged with RXTXcomm, so you will need to <a href = "http://fizzed.com/oss/rxtx-for-java">download it from here</a> and install it yourself for now. I will include it in the next release.
+might also need to change the port name in SerialClass on line 16.
 
 <b>Usage</b>
 
