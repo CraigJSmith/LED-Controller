@@ -8,7 +8,7 @@ might also need to change the port name in SerialClass on line 16.
 
 <b>Usage</b>
 
-<img src = "http://i.imgur.com/NyqoxNu.png">
+<img src = "http://i.imgur.com/cMZvYmn.png">
 
 Select your desired color by clicking on the button coresponding to the color. You can use the slider to adjust the PWM setting (brightness).
 By default it is at 128. The LEDs will remain on its last setting even after you close the program. The settings will reset if the Arduino looses
