@@ -7,7 +7,7 @@ Connect an Arduino to your PC with a USB cable and RGB LED lights to the Arduino
 
 <b>Usage</b>
 
-<img src = "http://i.imgur.com/A3Caz3G.png">
+<img src = "http://i.imgur.com/tzjIVkn.gif">
 
 The program features color selectors for primary and secondary colors alongside a color mixer allowing for almost any color. Color brightness can also be controlled. The lights will remain on its last setting even after you close the program. The settings will reset if the Arduino looses power, if you relaunch the program, or if serial communication is in any other way interrupted.
 
