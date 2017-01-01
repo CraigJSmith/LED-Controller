@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static led.SerialClass.*;
-import org.apache.commons.io.FileUtils;
+//import org.apache.commons.io.FileUtils;
 
 public class GUI extends javax.swing.JFrame {
 
@@ -14,6 +14,14 @@ public class GUI extends javax.swing.JFrame {
     private int redValue;
     private int greenValue;
     private int blueValue;
+    
+    public static void sleep() {
+        try {
+            Thread.sleep(40);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+    }
 
     public GUI() {
         initComponents();
@@ -38,7 +46,6 @@ public class GUI extends javax.swing.JFrame {
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jPanel1 = new javax.swing.JPanel();
         buttonGroup3 = new javax.swing.ButtonGroup();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         whiteButton = new javax.swing.JToggleButton();
         offButton = new javax.swing.JToggleButton();
@@ -62,10 +69,6 @@ public class GUI extends javax.swing.JFrame {
         r = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         g = new javax.swing.JTextPane();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        comPortBox = new javax.swing.JTextField();
 
         jInternalFrame1.setVisible(true);
 
@@ -374,340 +377,200 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Colors", jPanel3);
-
-        jLabel1.setText("COM Port");
-
-        jButton1.setText("Accept");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        comPortBox.setText("COM3");
-        comPortBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comPortBoxActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(comPortBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jButton1)))
-                .addContainerGap(88, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(comPortBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(324, Short.MAX_VALUE))
-        );
-
-        jTabbedPane2.addTab("Settings", jPanel2);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane2)
-                .addContainerGap())
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane2)
-                .addContainerGap())
+                .addGap(0, 15, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 15, Short.MAX_VALUE))
         );
-
-        jTabbedPane2.getAccessibleContext().setAccessibleName("Colors");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void redButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redButtonActionPerformed
-        writeData("off");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-        writeData("red");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-        writeData("." + value);
-    }//GEN-LAST:event_redButtonActionPerformed
+    private void redSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_redSliderStateChanged
 
-    private void greenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenButtonActionPerformed
-        writeData("off");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-        writeData("green");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-        writeData("." + value);
-    }//GEN-LAST:event_greenButtonActionPerformed
+        sleep();
+        redValue = redSlider.getValue();
 
-    private void blueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blueButtonActionPerformed
-        writeData("off");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
+        if (redValue == 256) {
+            redValue = 255;
         }
-        writeData("blue");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
+        else {
+            writeData("r" + redValue);
         }
-        writeData("." + value);
-    }//GEN-LAST:event_blueButtonActionPerformed
+    }//GEN-LAST:event_redSliderStateChanged
 
-    private void yellowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yellowButtonActionPerformed
-        writeData("off");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-        writeData("yellow");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-        writeData("." + value);
-    }//GEN-LAST:event_yellowButtonActionPerformed
+    private void blueSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_blueSliderStateChanged
 
-    private void pinkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinkButtonActionPerformed
+        sleep();
+        blueValue = blueSlider.getValue();
+
+        if (blueValue == 256) {
+            blueValue = 255;
+        }
+        else {
+            writeData("b" + blueValue);
+        }
+    }//GEN-LAST:event_blueSliderStateChanged
+
+    private void greenSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_greenSliderStateChanged
+
+        sleep();
+        greenValue = greenSlider.getValue();
+
+        if (greenValue == 256) {
+            greenValue = 255;
+        }
+        else {
+            writeData("g" + greenValue);
+        }
+    }//GEN-LAST:event_greenSliderStateChanged
+
+    private void colorMixerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorMixerActionPerformed
         writeData("off");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
+
+        if(colorMixer.isSelected())
+        {
+            invisibleButton.setSelected(true);
+            pwm.setValue(128);
+            sleep();
+            writeData("off");
+            redButton.setEnabled(false);
+            greenButton.setEnabled(false);
+            blueButton.setEnabled(false);
+            yellowButton.setEnabled(false);
+            pinkButton.setEnabled(false);
+            cyanButton.setEnabled(false);
+            whiteButton.setEnabled(false);
+            offButton.setEnabled(false);
+            pwm.setEnabled(false);
+
+            redSlider.setEnabled(true);
+            greenSlider.setEnabled(true);
+            blueSlider.setEnabled(true);
+
+            r.setEnabled(true);
+            g.setEnabled(true);
+            b.setEnabled(true);
         }
-        writeData("pink");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
+        else
+        {
+
         }
-        writeData("." + value);
-    }//GEN-LAST:event_pinkButtonActionPerformed
+    }//GEN-LAST:event_colorMixerActionPerformed
+
+    private void colorSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorSelectorActionPerformed
+        writeData("off");
+
+        if(colorSelector.isSelected())
+        {
+            redSlider.setEnabled(false);
+            greenSlider.setEnabled(false);
+            blueSlider.setEnabled(false);
+
+            redSlider.setValue(0);
+            greenSlider.setValue(0);
+            blueSlider.setValue(0);
+
+            redButton.setEnabled(true);
+            greenButton.setEnabled(true);
+            blueButton.setEnabled(true);
+            yellowButton.setEnabled(true);
+            pinkButton.setEnabled(true);
+            cyanButton.setEnabled(true);
+            whiteButton.setEnabled(true);
+            offButton.setEnabled(true);
+            pwm.setEnabled(true);
+
+            r.setEnabled(false);
+            g.setEnabled(false);
+            b.setEnabled(false);
+        }
+        else
+        {
+
+        }
+    }//GEN-LAST:event_colorSelectorActionPerformed
 
     private void cyanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cyanButtonActionPerformed
         writeData("off");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
+        sleep();
         writeData("cyan");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
+        sleep();
         writeData("." + value);
     }//GEN-LAST:event_cyanButtonActionPerformed
 
-    private void whiteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_whiteButtonActionPerformed
+    private void pinkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinkButtonActionPerformed
         writeData("off");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-        writeData("white");
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
+        sleep();
+        writeData("pink");
+        sleep();
         writeData("." + value);
-    }//GEN-LAST:event_whiteButtonActionPerformed
+    }//GEN-LAST:event_pinkButtonActionPerformed
+
+    private void blueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blueButtonActionPerformed
+        writeData("off");
+        sleep();
+        writeData("blue");
+        sleep();
+        writeData("." + value);
+    }//GEN-LAST:event_blueButtonActionPerformed
+
+    private void greenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenButtonActionPerformed
+        writeData("off");
+        sleep();
+        writeData("green");
+        sleep();
+        writeData("." + value);
+    }//GEN-LAST:event_greenButtonActionPerformed
+
+    private void yellowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yellowButtonActionPerformed
+        writeData("off");
+        sleep();
+        writeData("yellow");
+        sleep();
+        writeData("." + value);
+    }//GEN-LAST:event_yellowButtonActionPerformed
+
+    private void redButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redButtonActionPerformed
+        writeData("off");
+        sleep();
+        writeData("red");
+        sleep();
+        writeData("." + value);
+    }//GEN-LAST:event_redButtonActionPerformed
+
+    private void pwmStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pwmStateChanged
+        sleep();
+        value = pwm.getValue();
+        if(value == 256) {
+            value = 255;
+        }
+        else {}
+        writeData("." + value);
+    }//GEN-LAST:event_pwmStateChanged
 
     private void offButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_offButtonActionPerformed
         writeData("off");
     }//GEN-LAST:event_offButtonActionPerformed
 
-    private void pwmStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pwmStateChanged
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-        value = pwm.getValue();
-        if(value == 256) {
-            value = 255;
-        }
-        else {
+    private void whiteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_whiteButtonActionPerformed
+        writeData("off");
+        sleep();
+        writeData("white");
+        sleep();
         writeData("." + value);
-        }
-    }//GEN-LAST:event_pwmStateChanged
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String comPort = comPortBox.getText();
-
-        File file = new File("com.txt");
-        
-        try {
-            FileUtils.writeStringToFile(file, comPort, true);
-        } catch (IOException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void redSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_redSliderStateChanged
-
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-        redValue = redSlider.getValue();
-        
-        if (redValue == 256) {
-            redValue = 255;
-    }
-        else {
-        writeData("r" + redValue);
-        }
-    }//GEN-LAST:event_redSliderStateChanged
-
-    private void greenSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_greenSliderStateChanged
-
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-        greenValue = greenSlider.getValue();
-        
-        if (greenValue == 256) {
-            greenValue = 255;
-    }
-        else {
-        writeData("g" + greenValue);
-        }
-    }//GEN-LAST:event_greenSliderStateChanged
-
-    private void blueSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_blueSliderStateChanged
-
-        try {
-            Thread.sleep(40);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-        blueValue = blueSlider.getValue();
-        
-        if (blueValue == 256) {
-            blueValue = 255;
-    }
-        else {
-        writeData("b" + blueValue);
-        }
-    }//GEN-LAST:event_blueSliderStateChanged
-
-    private void colorMixerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorMixerActionPerformed
-    writeData("off");
-       
-    if(colorMixer.isSelected())
-    {
-        invisibleButton.setSelected(true);
-        pwm.setValue(128);
-        
-        redButton.setEnabled(false);
-        greenButton.setEnabled(false);
-        blueButton.setEnabled(false);
-        yellowButton.setEnabled(false);
-        pinkButton.setEnabled(false);
-        cyanButton.setEnabled(false);
-        whiteButton.setEnabled(false);
-        offButton.setEnabled(false);
-        pwm.setEnabled(false);
-        
-        redSlider.setEnabled(true);
-        greenSlider.setEnabled(true);
-        blueSlider.setEnabled(true);
-        
-        r.setEnabled(true);
-        g.setEnabled(true);
-        b.setEnabled(true);
-    }
-    else 
-    {
-        
-    }
-    }//GEN-LAST:event_colorMixerActionPerformed
-
-    private void colorSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorSelectorActionPerformed
-    writeData("off");
-        
-    if(colorSelector.isSelected())
-    {
-        redSlider.setEnabled(false);
-        greenSlider.setEnabled(false);
-        blueSlider.setEnabled(false);
-        
-        redSlider.setValue(0);
-        greenSlider.setValue(0);
-        blueSlider.setValue(0);
-        
-        redButton.setEnabled(true);
-        greenButton.setEnabled(true);
-        blueButton.setEnabled(true);
-        yellowButton.setEnabled(true);
-        pinkButton.setEnabled(true);
-        cyanButton.setEnabled(true);
-        whiteButton.setEnabled(true);
-        offButton.setEnabled(true);
-        pwm.setEnabled(true);
-        
-        r.setEnabled(false);
-        g.setEnabled(false);
-        b.setEnabled(false);
-        
-    }
-    else 
-    {
-        
-    }
-    }//GEN-LAST:event_colorSelectorActionPerformed
-
-    private void comPortBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comPortBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comPortBoxActionPerformed
+    }//GEN-LAST:event_whiteButtonActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -748,23 +611,18 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     javax.swing.JRadioButton colorMixer;
     public javax.swing.JRadioButton colorSelector;
-    private javax.swing.JTextField comPortBox;
     private javax.swing.JToggleButton cyanButton;
     private javax.swing.JTextPane g;
     private javax.swing.JToggleButton greenButton;
     private javax.swing.JSlider greenSlider;
     private javax.swing.JToggleButton invisibleButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JToggleButton offButton;
     private javax.swing.JToggleButton pinkButton;
     private javax.swing.JSlider pwm;
