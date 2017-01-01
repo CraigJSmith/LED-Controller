@@ -3,7 +3,7 @@ This program controls RGB LED lights connected to an Arduino from a PC applicati
 
 <b>Setup</b>
 
-Connect an Arduino to your PC with a USB cable and RGB LED lights to the Arduino's pins. By default, the Arduino is connected on COM3 and lights are connected to the following pins: red on pin 3, green on pin 9, and blue on pin 6. These can be changed in the Java applicaton and the Arduino sketch respectively, however will require recompiling the programs.
+Connect an Arduino to your PC with a USB cable and RGB LED lights to the Arduino's pins. [This Adafruit tutorial](https://learn.adafruit.com/rgb-led-strips) will walk you through how to setup the hardware perfectly for this. By default, the Arduino is connected on COM3 and lights are connected to the following pins: red on pin 3, green on pin 9, and blue on pin 6. These can be changed in the Java applicaton and the Arduino sketch respectively, however would require recompiling the programs. If you set yours up the same way, you can just download the programs from the [Releases page](https://github.com/CraigJSmith/LED-Controller/releases) and deploy the Arduino sketch without any changes.
 
 <b>Usage</b>
 
@@ -32,4 +32,4 @@ b### (0-255) | Sets PWM (brightness) of blue lights (for color mixer)
 
 <b>Credits</b>
 
-SerialClass is modified from <a href = "http://theelectronicist.blogspot.com/2015/02/java-to-arduino-communications-on-linux.html">Jeremy Dunne<a>
+SerialClass is modified from [Jeremy Dunne](http://theelectronicist.blogspot.com/2015/02/java-to-arduino-communications-on-linux.html)
